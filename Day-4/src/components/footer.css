@@ -1,0 +1,9 @@
+footer p,a{
+    font-size: 13px;
+  }
+  input:focus, select:focus {
+    outline: none;       
+    border-top: none;         
+    border-left: none;
+    border-right: none;
+  }
