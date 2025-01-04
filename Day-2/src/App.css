@@ -1,0 +1,31 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+#search{
+    margin-left: -80%;
+}
+
+
+/* section-2 */
+
+.a{
+    background-image: url(assets/i1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.b{
+    background-image: url(assets/i2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.c{
+    background-image: url(assets/i3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
