@@ -1,0 +1,9 @@
+*{
+  margin-top: 7%;
+  background-color: #ecf2f7;
+}
+
+.coun{
+  display: flex;
+  font-size: 20px;
+}
