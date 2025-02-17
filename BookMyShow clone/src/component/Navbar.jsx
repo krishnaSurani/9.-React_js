@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 function Navbar() {
   return (
@@ -6,7 +8,7 @@ function Navbar() {
         <div className='h-full w-[80%]  m-auto flex justify-between'>
             <div className='h-full w-[40%] '>
                 <ul className='flex justify-evenly items-center h-full text-sm'>
-                    <li><a >Movies</a></li>
+                   <li><Link to={`/Movie`} className='text-black text-decoration-none'><a >Movies</a></Link> </li>
                     <li><a >Stream</a></li>
                     <li><a >Events</a></li>
                     <li><a >Plays</a></li>

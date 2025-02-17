@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <div className='h-[900px] w-full bg-[#333338]'>
+        <div className='h-[900px] w-full bg-[#333338] '>
             <div className='h-[6%] w-[80%] m-auto flex align-items-center text-white'>
                 <img src="https://in.bmscdn.com/webin/common/icons/hut.svg" alt="" className='h-[60%]' />
                 <p className='pt-3 me-5'>
