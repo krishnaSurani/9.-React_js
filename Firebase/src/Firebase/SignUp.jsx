@@ -19,12 +19,14 @@ export default function SignUp() {
     });
   };
 
-  const handleGoogleSignin = async()=>{
-    await signInWithPopup(auth,provider).then((res)=>{
+  const handleGoogleSignin = async () => {
+    await signInWithPopup(auth, provider).then((res) => {
       console.log(res);
+      setDoc(doc(firestore, "users", res.user.uid), { name:res.user.displayName, email:res.user.email });
+
       navigate("/Dashbord", { replace: true });
     })
-    
+
   }
 
 
@@ -34,10 +36,10 @@ export default function SignUp() {
         <h1 className="text-3xl font-bold mb-6">Join Us</h1>
         <p className="text-gray-400 mb-4">Sign up to get started</p>
 
-        <input type="text" placeholder="Enter Your Name" onChange={(e) => setName(e.target.value)} className="w-full border border-gray-600 bg-gray-700 p-3 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-yellow-500"/>
-        <input type="email" placeholder="Enter Your Email" onChange={(e) => setEmail(e.target.value)}className="w-full border border-gray-600 bg-gray-700 p-3 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-yellow-500"/>
+        <input type="text" placeholder="Enter Your Name" onChange={(e) => setName(e.target.value)} className="w-full border border-gray-600 bg-gray-700 p-3 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+        <input type="email" placeholder="Enter Your Email" onChange={(e) => setEmail(e.target.value)} className="w-full border border-gray-600 bg-gray-700 p-3 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
 
-        <input type="password" placeholder="Enter Your Password" onChange={(e) => setPassword(e.target.value)}className="w-full border border-gray-600 bg-gray-700 p-3 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-yellow-500"/>
+        <input type="password" placeholder="Enter Your Password" onChange={(e) => setPassword(e.target.value)} className="w-full border border-gray-600 bg-gray-700 p-3 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
 
         <button onClick={handleSignUp} className="w-full bg-yellow-500 text-gray-900 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition">Sign Up</button>
         <button onClick={handleGoogleSignin} className="w-full bg-yellow-500 text-gray-900 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition mt-3">Sign in with Google</button>

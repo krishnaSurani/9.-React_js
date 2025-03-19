@@ -29,6 +29,8 @@ export default function Dashboard() {
   const fetchUser = async () => {
     const res = await getDoc(doc(firestore, "users", Uid));
     setData(res.data());
+    console.log(res);
+    
   };
 
   const fetchData = async () => {
