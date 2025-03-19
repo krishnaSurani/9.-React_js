@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, firestore } from "../../firebaseConfig";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, firestore, provider } from "../../firebaseConfig";
 import { Link, useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 
@@ -20,6 +20,10 @@ export default function SignUp() {
   };
 
   const handleGoogleSignin = async()=>{
+    await signInWithPopup(auth,provider).then((res)=>{
+      console.log(res);
+      navigate("/Dashbord", { replace: true });
+    })
     
   }
 
@@ -36,7 +40,7 @@ export default function SignUp() {
         <input type="password" placeholder="Enter Your Password" onChange={(e) => setPassword(e.target.value)}className="w-full border border-gray-600 bg-gray-700 p-3 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-yellow-500"/>
 
         <button onClick={handleSignUp} className="w-full bg-yellow-500 text-gray-900 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition">Sign Up</button>
-        <button onClick={handleGoogleSignin} className="w-full bg-yellow-500 text-gray-900 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition">Sign in with Google</button>
+        <button onClick={handleGoogleSignin} className="w-full bg-yellow-500 text-gray-900 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition mt-3">Sign in with Google</button>
 
         <p className="text-center mt-4 text-gray-400">
           Already have an account? <Link to="/SignIn" className="text-yellow-400 hover:underline">Sign In</Link>
